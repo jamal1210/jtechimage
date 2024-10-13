@@ -1,0 +1,289 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Sports Gallery</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'jamal.html' %}">JTECH IMAGE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'jamal.html' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact.html' %}">Contracts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home.html' %}">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner image -->
+    <div class="image mb-4">
+        <img src="{% static 'images/bannar2.png' %}" alt="Banner Image" class="img-fluid">
+    </div>
+
+    <!-- Search Bar -->
+    <form action="{% url 'search1' %}" class="d-flex container" method="GET">
+        <input name="search" class="form-control mb-2 me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+<!-- Product Cards -->
+<div class="container">
+    <div class="row">
+        {% for x in sports_images %}
+        <div class="col-lg-4 col-md-4 col-12 mb-2">
+            <div class="card" style="width: 20rem;">
+                <img src="{{ x.img.url }}" class="img-fluid rounded" alt="{{ x.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ x.title }}</h5>
+                    <a href="{{ x.get_absolute_url }}" class="btn btn-primary btn-lg">VIEW DETAILS</a>
+                </div>
+            </div>
+        </div>
+
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+            </div><div class="row mt-3">
+        {% elif forloop.last %}
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container p-4">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">JTECH IMAGE</h5>
+                    <p>
+                        JTECH IMAGE provides AI-based image generation and a wide variety of nature and wallpaper images.
+                        Explore our site for the latest updates and galleries.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="fab fa-facebook-f me-2"></i> Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="fab fa-twitter me-2"></i> Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="fab fa-youtube me-2"></i> YouTube
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="d-flex align-items-center">
+                                <i class="fab fa-instagram me-2"></i> Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope"></i> info@jtechimage.com</li>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 1234 Tech Street, Imaginary City</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="text-center">
+            <p>&copy; 2024 JTECH IMAGE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<!-- CSS Styles -->
+<style>
+    /* General body styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        background-position: center;
+        background-size: cover;
+        box-sizing: border-box;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        background-color: #1f1f1f;
+        justify-content: center;
+        font-size: large;
+    }
+
+    .navbar-brand {
+        color: #ff008c;
+        font-weight: bold;
+    }
+
+    .navbar-nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar-nav .nav-link {
+        color: #e0e0e0;
+        font-weight: 500;
+        margin: 0 15px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #00c853;
+    }
+
+    /* Search bar styles */
+    .form-control {
+        border: 4px solid #6643ff;
+        border-radius: 0.25rem;
+    }
+
+    .btn-outline-success {
+        color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+
+    /* Banner image styles */
+    .image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Product card styles */
+    .card {
+        transition: transform 0.15s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .navbar-collapse {
+            text-align: center;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+    }
+
+    /* Footer Section Styling */
+    footer {
+        background-color: #1e1033;
+        color: #e0e0e0;
+        padding: 40px 0;
+        margin-top: 50px;
+        width: 100%;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer h5 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: #ff008c;
+    }
+
+    footer p {
+        font-size: 0.95rem;
+        color: #b0b0b0;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #00c853;
+    }
+
+    footer ul {
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    footer ul li {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    footer ul li i {
+        margin-right: 10px;
+        color: #00c853;
+    }
+
+    footer .text-center {
+        background-color: #000000;
+        padding: 10px 0;
+        font-size: 0.9rem;
+        color: #ffffff;
+        border-top: 1px solid #555;
+    }
+
+    @media (max-width: 768px) {
+        footer .col-lg-6,
+        footer .col-lg-3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+</style>

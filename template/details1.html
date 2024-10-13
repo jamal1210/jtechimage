@@ -1,0 +1,25 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{ Sports_Image_page.title }}</title> <!-- Correctly referencing the title -->
+  </head>
+  <body>
+    <h1 class="text-center my-4">{{ Sports_Image_page.title }}</h1> <!-- Added some margin for better spacing -->
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+          <img src="{{ Sports_Image_page.img.url }}" class="img-fluid rounded" alt="{{ Sports_Image_page.title }}"> <!-- Correct image reference -->
+          <a href="{{ Sports_Image_page.img.url }}" class="btn btn-lg btn-block btn-success mt-3" download>Download Image</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
