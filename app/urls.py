@@ -3,7 +3,7 @@ from app import views as app_views
 from aiimage import views as aiimage_views
 
 urlpatterns = [
-    path('', aiimage_views.generate_image, name='jamal.html'),
+    path('', aiimage_views.generate_image, name='index.html'),
     
     #ai image sections
     path('ho/', app_views.home_page, name='home.html'),  # Home page for general images

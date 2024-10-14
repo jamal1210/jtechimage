@@ -50,7 +50,7 @@ def generate_image(request):
                 error_message = str(e)
 
     # Render the form if GET request or no valid input
-    return render(request, 'jamal.html', {'error': error_message, 'gallery': gallery})
+    return render(request,'index.html', {'error': error_message, 'gallery': gallery})
 
 
 

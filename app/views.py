@@ -71,7 +71,7 @@ def contact_view(request):
         message = request.POST.get('message')
         
         # After processing the form data, redirect to the "home" page
-        return redirect('jamal.html')  # 'home' should be the name of your URL pattern for the home page
+        return redirect('index.html')  # 'home' should be the name of your URL pattern for the home page
 
     # Render the contact form if it's a GET request
     return render(request, 'contact.html')
