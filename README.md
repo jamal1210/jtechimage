@@ -1,1 +1,1 @@
-https://jamal1210.github.io/jtechimages/
+https://jamal1210.github.io/jtechimage/
