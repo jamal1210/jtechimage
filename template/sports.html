@@ -11,15 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     <title>Sports Gallery</title>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index.html' %}">JTECH IMAGE</a>
+            <a class="navbar-brand" href="{% url 'home.html' %}">JTECH IMAGE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -31,17 +29,17 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'index.html' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a>
+                        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a> <!-- Home for general images -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a>
+                        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a> <!-- Sports gallery page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact.html' %}">Contracts</a>
+                        <a class="nav-link" href="{% url 'index.html' %}">Vector Stock</a> <!-- Contract list page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home.html' %}">Sign Up</a>
-                    </li>
+                        <a class="nav-link" href="#">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
+                    </li>   
                 </ul>
             </div>
         </div>
@@ -81,60 +79,28 @@
 </div>
 
 
-    <!-- Footer -->
-    <footer>
-        <div class="container p-4">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">JTECH IMAGE</h5>
-                    <p>
-                        JTECH IMAGE provides AI-based image generation and a wide variety of nature and wallpaper images.
-                        Explore our site for the latest updates and galleries.
-                    </p>
-                </div>
-                <!-- Quick Links -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-facebook-f me-2"></i> Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-twitter me-2"></i> Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-youtube me-2"></i> YouTube
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-instagram me-2"></i> Instagram
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Contact Us</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope"></i> info@jtechimage.com</li>
-                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 1234 Tech Street, Imaginary City</li>
-                    </ul>
-                </div>
-            </div>
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-google-plus"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
         </div>
-        <!-- Footer Bottom -->
-        <div class="text-center">
-            <p>&copy; 2024 JTECH IMAGE. All rights reserved.</p>
+        <div class="footerNav">
+            <ul>
+                <li><a class="nav-link" href="{% url 'home.html' %}">Home</a></li>
+                <li><a class="nav-link" href="{% url 'home.html' %}"> News</a></li>
+                <li><a class="nav-link" href="{% url 'index.html' %}">About</a></li>
+                <li><a class="nav-link" href="{% url 'contact.html' %}">Contacts us</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2024 All rights reserved</p>
+    </div>
+</footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -154,32 +120,87 @@
         box-sizing: border-box;
     }
 
-    /* Navbar Styles */
-    .navbar {
-        background-color: #1f1f1f;
-        justify-content: center;
-        font-size: large;
-    }
+    
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(90deg, #000000, #000000); /* Gradient background for the navbar */
+    justify-content: center; /* Center the navbar items */
+    font-size: large;
+    padding: 20px 40px; /* Padding for more space */
+    border-bottom: 6px solid #1a5722; /* Bottom border for a stylish touch */
+    transition: background 0.8s ease-in-out; /* Smooth background transition */
+}
 
-    .navbar-brand {
-        color: #ff008c;
-        font-weight: bold;
+.navbar:hover {
+    background: linear-gradient(90deg, #2504b8, #2504b8); /* Change gradient on hover */
+}
+
+.navbar-brand {
+    color: #ff008c; /* Brand text color */
+    font-weight: bold; /* Bold brand text */
+    font-size: 1.8em; /* Slightly larger font size */
+    text-shadow: 0 3px 6px rgba(206, 33, 128, 0.4); /* Text shadow for effect */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling and color transition */
+}
+
+.navbar-brand:hover {
+    color: #cf3abb; /* Change brand color on hover */
+    transform: rotate(-5deg) scale(1.1); /* Rotate and scale effect on hover */
+}
+
+.navbar-nav {
+    display: flex;
+    margin-left: auto; /* Align items to the center */
+    margin-right: auto; /* Align items to the center */
+}
+
+.navbar-nav .nav-link {
+    color: #e0e0e0; /* Default link color */
+    font-weight: 600; /* Slightly bolder link text */
+    margin: 0 20px; /* Increased space between links */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling transition */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00c853;
+    transition: width 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Animate the underline expansion */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0ef80e; /* Different hover color for links */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        padding: 25px; /* Padding for a more mobile-friendly feel */
     }
 
     .navbar-nav {
-        margin-left: auto;
-        margin-right: auto;
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        margin: 10px 0; /* Spacing between stacked links */
     }
 
     .navbar-nav .nav-link {
-        color: #e0e0e0;
-        font-weight: 500;
-        margin: 0 15px;
+        margin: 15px 0; /* Space out links more on mobile */
     }
-
-    .navbar-nav .nav-link:hover {
-        color: #00c853;
-    }
+}
 
     /* Search bar styles */
     .form-control {
@@ -198,92 +219,95 @@
         color: #ffffff;
     }
 
-    /* Banner image styles */
-    .image img {
-        width: 100%;
-        height: auto;
-    }
+    
 
-    /* Product card styles */
-    .card {
-        transition: transform 0.15s;
-    }
+/*footar*/
 
-    .card:hover {
-        transform: scale(1.05);
-    }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+footer{
+    background-color: #470d3b;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: rgb(8, 21, 143);
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: #153d05;
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 5px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:rgb(255, 255, 255);
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .navbar-collapse {
-            text-align: center;
-        }
 
-        .form-control {
-            width: 100%;
-        }
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: rgb(0, 0, 0);
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
+        flex-direction: column;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
     }
-
-    /* Footer Section Styling */
-    footer {
-        background-color: #1e1033;
-        color: #e0e0e0;
-        padding: 40px 0;
-        margin-top: 50px;
-        width: 100%;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
     }
-
-    footer h5 {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        color: #ff008c;
-    }
-
-    footer p {
-        font-size: 0.95rem;
-        color: #b0b0b0;
-    }
-
-    footer a {
-        text-decoration: none;
-        color: #ffffff;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: #00c853;
-    }
-
-    footer ul {
-        padding-left: 0;
-        list-style-type: none;
-    }
-
-    footer ul li {
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-    }
-
-    footer ul li i {
-        margin-right: 10px;
-        color: #00c853;
-    }
-
-    footer .text-center {
-        background-color: #000000;
-        padding: 10px 0;
-        font-size: 0.9rem;
-        color: #ffffff;
-        border-top: 1px solid #555;
-    }
-
-    @media (max-width: 768px) {
-        footer .col-lg-6,
-        footer .col-lg-3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    }
+}
 </style>

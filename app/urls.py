@@ -16,5 +16,6 @@ urlpatterns = [
     path('sports/<int:id>/<slug:slug>/', app_views.sports_details_view, name='detailss'),  # Sports image details
     path('sports_search/', app_views.sports_search_page, name='search1'),  # Sports image search
     path('contact/', app_views.contact_view, name='contact.html'),
+    path('slider/', app_views.slider, name='sliders'),
 
 ]

@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
 
-    <title>AI Image</title>
+    <title>Image Library</title>
 </head>
 <body>
     <!-- Navbar -->
@@ -37,10 +37,10 @@
                         <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a> <!-- Sports gallery page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact.html' %}">Contracts</a> <!-- Contract list page -->
+                        <a class="nav-link" href="{% url 'index.html' %}">Vector Stock</a> <!-- Contract list page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
+                        <a class="nav-link" href="#">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
                     </li>   
                 </ul>
             </div>
@@ -48,242 +48,417 @@
     </nav>
 
     <!-- Banner image -->
-    <div class="image mb-4">
-        <img src="{% static 'images/bannar2.png' %}" alt="Banner Image" class="img-fluid">
-    </div>
+   <h1>Image Gallery</h1>
 
     <!-- Search Bar -->
     <form action="{% url 'search.html' %}" class="d-flex container" method="GET">
-        <input name="search" class="form-control mb-2 me-2" type="search" placeholder="Search" aria-label="Search">
+        <input name="search" class="form-control mb-1 me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 
-    <!-- Product Cards -->
     <div class="container">
         <div class="row">
             {% for x in images %}
-            <div class="col-lg-4 col-md-4 col-12 mb-2">
-                <div class="card" style="width: 20rem;">
+            <div class="col">
+                <div class="card">
                     <img src="{{ x.img.url }}" class="card-img-top" alt="{{ x.title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ x.title }}</h5>
-                        <a href="{{ x.get_absolute_url }}" class="btn btn-primary btn-lg">VIEW DETAILS</a>
+                        <form action="{{ x.get_absolute_url }}" method="POST">
+                            {% csrf_token %} <!-- CSRF Token -->
+                            <button class="btn btn-primary" type="submit">View Details</button>
+                        </form>
                     </div>
                 </div>
             </div>
-
-            {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                </div><div class="row mt-3">
-            {% elif forloop.last %}
-                </div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
+    
 
-    <!-- Footer -->
     <footer>
-        <div class="container p-4">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">JTECH IMAGE</h5>
-                    <p>
-                        JTECH IMAGE provides AI-based image generation and a wide variety of nature and wallpaper images.
-                        Explore our site for the latest updates and galleries.
-                    </p>
-                </div>
-                <!-- Quick Links -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-facebook-f me-2"></i> Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-twitter me-2"></i> Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-youtube me-2"></i> YouTube
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="d-flex align-items-center">
-                                <i class="fab fa-instagram me-2"></i> Instagram
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Contact Us</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope"></i> info@jtechimage.com</li>
-                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 1234 Tech Street, Imaginary City</li>
-                    </ul>
-                </div>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a class="nav-link" href="{% url 'home.html' %}">Home</a></li>
+                    <li><a class="nav-link" href="{% url 'home.html' %}"> News</a></li>
+                    <li><a class="nav-link" href="{% url 'index.html' %}">About</a></li>
+                    <li><a class="nav-link" href="{% url 'contact.html' %}">Contacts us</a></li>
+                </ul>
             </div>
         </div>
-        <!-- Footer Bottom -->
-        <div class="text-center">
-            <p>&copy; 2024 JTECH IMAGE. All rights reserved.</p>
+        <div class="footerBottom">
+            <p>Copyright &copy;2024 All rights reserved</p>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
 <!-- CSS Styles -->
 <style>
-    /* General body styles */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-        background-position: center;
-        background-size: cover;
-        box-sizing: border-box;
-    }
 
-    /* Navbar Styles */
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(216, 198, 198);
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    margin-top: 30px;
+    padding-top: 30px;
+    color: #033f03;
+   
+}
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(90deg, #000000, #000000); /* Gradient background for the navbar */
+    justify-content: center; /* Center the navbar items */
+    font-size: large;
+    padding: 20px 40px; /* Padding for more space */
+    border-bottom: 6px solid #1a5722; /* Bottom border for a stylish touch */
+    transition: background 0.8s ease-in-out; /* Smooth background transition */
+}
+
+.navbar:hover {
+    background: linear-gradient(90deg, #2504b8, #2504b8); /* Change gradient on hover */
+}
+
+.navbar-brand {
+    color: #ff008c; /* Brand text color */
+    font-weight: bold; /* Bold brand text */
+    font-size: 1.8em; /* Slightly larger font size */
+    text-shadow: 0 3px 6px rgba(206, 33, 128, 0.4); /* Text shadow for effect */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling and color transition */
+}
+
+.navbar-brand:hover {
+    color: #cf3abb; /* Change brand color on hover */
+    transform: rotate(-5deg) scale(1.1); /* Rotate and scale effect on hover */
+}
+
+.navbar-nav {
+    display: flex;
+    margin-left: auto; /* Align items to the center */
+    margin-right: auto; /* Align items to the center */
+}
+
+.navbar-nav .nav-link {
+    color: #e0e0e0; /* Default link color */
+    font-weight: 600; /* Slightly bolder link text */
+    margin: 0 20px; /* Increased space between links */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling transition */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00c853;
+    transition: width 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Animate the underline expansion */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0ef80e; /* Different hover color for links */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
     .navbar {
-        background-color: #1f1f1f;
-        justify-content: center;
-        font-size: large;
-    }
-
-    .navbar-brand {
-        color: #ff008c;
-        font-weight: bold;
+        flex-direction: column; /* Stack items vertically */
+        padding: 25px; /* Padding for a more mobile-friendly feel */
     }
 
     .navbar-nav {
-        margin-left: auto;
-        margin-right: auto;
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        margin: 10px 0; /* Spacing between stacked links */
     }
 
     .navbar-nav .nav-link {
-        color: #e0e0e0;
-        font-weight: 500;
-        margin: 0 15px;
+        margin: 15px 0; /* Space out links more on mobile */
+    }
+}
+
+   /*footar*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+footer{
+    background-color: #470d3b;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: rgb(8, 21, 143);
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: #153d05;
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 5px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:rgb(255, 255, 255);
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: rgb(0, 0, 0);
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
+        flex-direction: column;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
+    }
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
+    }
+}
+
+
+/*form*/
+
+/* Styling for the search bar container */
+form.container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Styling for the search input field */
+form.container .form-control {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+    font-size: 16px;
+}
+
+/* Input field focus effect */
+form.container .form-control:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+/* Styling for the search button */
+form.container .btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+/* Button hover effect */
+form.container .btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    form.container {
+        flex-direction: column;
     }
 
-    .navbar-nav .nav-link:hover {
-        color: #00c853;
-    }
-
-    /* Search bar styles */
-    .form-control {
-        border: 4px solid #6643ff;
-        border-radius: 0.25rem;
-    }
-
-    .btn-outline-success {
-        color: #007bff;
-        border-color: #007bff;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .btn-outline-success:hover {
-        background-color: #007bff;
-        color: #ffffff;
-    }
-
-    /* Banner image styles */
-    .image img {
+    form.container .form-control,
+    form.container .btn {
         width: 100%;
-        height: auto;
+        margin-bottom: 10px;
     }
 
-    /* Product card styles */
-    .card {
-        transition: transform 0.15s;
+    form.container .btn {
+        margin-bottom: 0;
     }
+}
 
-    .card:hover {
-        transform: scale(1.05);
+
+
+/* Body background */
+body {
+    background-color: rgb(216, 198, 198); /* সাদা ব্যাকগ্রাউন্ড */
+    color: #333; /* সাধারণ টেক্সট কালার */
+}
+
+/* Container for the cards */
+.container {
+    padding: 40px 20px; /* কন্টেইনারের চারপাশে প্যাডিং */
+}
+
+/* Responsive grid layout */
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 টি সমান কলাম */
+    gap: 20px; /* কার্ডের মধ্যে স্পেস */
+    justify-content: center; /* কেন্দ্রীয়ভাবে সাজানো */
+    align-items: start; /* উপরের দিকে সাজানো */
+}
+
+/* Card styling */
+.card {
+    background-color: #ffffff; /* সাদা ব্যাকগ্রাউন্ড কার্ডের জন্য */
+    border-radius: 10px; /* গোলাকার কোণ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* হালকা শ্যাডো */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ট্রানজিশন */
+    overflow: hidden; /* ওভারফ্লো লুকানো */
+}
+
+/* Hover effect for card */
+.card:hover {
+    transform: scale(1.05); /* হোভার করলে কার্ডের আকার বড় হবে */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* হোভার করলে শ্যাডো বেড়ে যাবে */
+}
+
+/* Card content styling */
+.card-body {
+    padding: 20px; /* কার্ডের মধ্যে প্যাডিং */
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 20px; /* টাইটেলের ফন্ট সাইজ */
+    font-weight: bold; /* টাইটেলের ফন্ট বোল্ড */
+    color: #333; /* কালো টাইটেল */
+    margin-bottom: 10px; /* টাইটেলের নিচে মার্জিন */
+}
+
+/* Card text styling */
+.card-text {
+    font-size: 14px; /* টেক্সটের ফন্ট সাইজ */
+    color: #666; /* হালকা ধূসর টেক্সট */
+}
+
+/* Button styling inside the card */
+.card .btn {
+    background-color: #007bff; /* নীল বাটন */
+    color: #fff; /* সাদা টেক্সট */
+    border-radius: 5px; /* গোলাকার কোণ */
+    padding: 10px 15px; /* বাটনের প্যাডিং */
+    text-transform: uppercase; /* বড় হাতের লেখা */
+    font-weight: 500; /* মাঝারি বোল্ড */
+    margin-top: 10px; /* বাটনের উপরে মার্জিন */
+    transition: background-color 0.3s ease; /* ট্রানজিশন */
+}
+
+/* Button hover effect */
+.card .btn:hover {
+    background-color: #0056b3; /* হোভার করার সময় ডার্কার ব্লু */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr); /* 3 কলাম মাঝারি স্ক্রীনে */
     }
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .navbar-collapse {
-            text-align: center;
-        }
-
-        .form-control {
-            width: 100%;
-        }
+@media (max-width: 992px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr); /* 2 কলাম ছোট স্ক্রীনে */
     }
+}
 
-    /* Footer Section Styling */
-    footer {
-        background-color: #1e1033;
-        color: #e0e0e0;
-        padding: 40px 0;
-        margin-top: 50px;
-        width: 100%;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: 1fr; /* 1 কলাম মোবাইল স্ক্রীনে */
     }
+}
 
-    footer h5 {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        color: #ff008c;
-    }
 
-    footer p {
-        font-size: 0.95rem;
-        color: #b0b0b0;
-    }
 
-    footer a {
-        text-decoration: none;
-        color: #ffffff;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: #00c853;
-    }
-
-    footer ul {
-        padding-left: 0;
-        list-style-type: none;
-    }
-
-    footer ul li {
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-    }
-
-    footer ul li i {
-        margin-right: 10px;
-        color: #00c853;
-    }
-
-    footer .text-center {
-        background-color: #000000;
-        padding: 10px 0;
-        font-size: 0.9rem;
-        color: #ffffff;
-        border-top: 1px solid #555;
-    }
-
-    @media (max-width: 768px) {
-        footer .col-lg-6,
-        footer .col-lg-3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    }
 </style>

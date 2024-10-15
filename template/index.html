@@ -8,9 +8,37 @@
     <title>AI Text to Image Generator</title>
 </head>
 <body>
- 
-
    {% block content %}
+   <div class="container mt-5">
+    <div id="imageSlider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in gallery %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ image.img.url }}" class="d-block w-100" alt="{{ image.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ image.title }}</h5>
+                    <p>{{ image.tags }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <div class="carousel-item active">
+                <p>No images generated yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
     <h1>AI Text to Image Generator</h1>
     
     <!-- Form Section -->
@@ -32,6 +60,7 @@
 
             <button type="submit">Generate Image</button>
         </form>
+        <h3>just wait...</h3>
 
         <!-- Progress bar -->
         <div class="progress" id="progress" style="display:none;">
@@ -67,12 +96,14 @@
         }
     </script>
     
-    <h3>Please wait just second</h3>
+    
 
 
      <!-- gallery.html -->
-<h2>Generated Image Gallery</h2>
-<div class="gallery-container">
+    <div class="imageg">
+        <h2>Generated Image Gallery</h2>
+    </div>
+    <div class="gallery-container">
     <div class="row">
         {% for image in gallery %}
         <div class="col-lg-4 col-md-4 col-12 mb-4">
@@ -95,6 +126,10 @@
     </div>
 </div>
 {% endblock %}
+<!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

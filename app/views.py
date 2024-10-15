@@ -3,7 +3,7 @@ from .models import Image, Sports_Image_page
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Contact_page
+from .models import Contact_page,image_slider
 from django.contrib import messages
 
 
@@ -77,4 +77,8 @@ def contact_view(request):
     return render(request, 'contact.html')
 
 
+    #slider image 
 
+def slider(request):
+    gallery = image_slider.objects.all()  # Use the correct model name 'Image'
+    return render(request, 'index.html', {'gallery': gallery})

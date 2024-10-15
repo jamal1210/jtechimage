@@ -70,4 +70,17 @@ class Contact_page(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+    
+# slider_page
+
+class image_slider (models.Model):
+    title = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='gallery/')
+    tags = models.CharField(max_length=200, blank=True)
+
+    def __str__(self):
+        return self.title
+
 
