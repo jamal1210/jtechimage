@@ -1,19 +1,14 @@
-{% extends 'nave.html' %}
+<!doctype html>
 {% load static %}
-{% block content %}
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Search: {{ query }}</title>
   </head>
   <body>
-     <div class="container">
+    <div class="container">
       {% if query %}
         <p>Search for <strong>{{ query }}</strong></p>
       {% endif %}
@@ -26,7 +21,7 @@
                 <img src="{{ x.img.url }}" class="card-img-top" alt="{{ x.title }}">
                 <div class="card-body">
                   <h5 class="card-title">{{ x.title }}</h5>
-                  <a href="{{ x.get_absolute_url }}" class="btn btn-primary">Download</a>
+                  <a href="{{ x.img.url }}" class="btn btn-primary" download>Download</a> <!-- Fixed download button -->
                 </div>
               </div>
             </div>
@@ -41,8 +36,6 @@
       {% endif %}
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
-  {% endblock  %}
+</html>

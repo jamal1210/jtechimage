@@ -21,7 +21,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:rgb(216, 198, 198); /* Light background color */
+    background-color:rgb(252, 232, 232); /* Light background color */
     box-sizing: border-box;
     min-height: 100vh; /* Full viewport height */
     width: 100%; /* Full viewport width */
@@ -202,7 +202,7 @@ img {
     justify-content: center; /* Center the navbar items */
     font-size: large;
     padding: 20px 40px; /* Padding for more space */
-    border-bottom: 6px solid #1a5722; /* Bottom border for a stylish touch */
+    border-bottom: 10px solid #1a5722; /* Bottom border for a stylish touch */
     transition: background 0.8s ease-in-out; /* Smooth background transition */
 }
 
@@ -247,7 +247,7 @@ img {
     transform: translateX(-50%);
     background-color: #00c853;
     transition: width 0.3s ease;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .navbar-nav .nav-link:hover::after {
@@ -371,7 +371,7 @@ footer{
 
 .gallery-container {
     padding: 20px;
-    background-color: #f7e1e1; /* Light gray-blue background for the gallery container */
+    background-color: #f8cdcd; /* Light gray-blue background for the gallery container */
     margin: 0 auto;
     max-width: 1300px;
     border-radius: 10px; /* Slightly rounded corners for the container */
@@ -398,8 +398,6 @@ footer{
     margin-top: 5px;
 }
 
-
-
 /* Image styling */
 
 .card-img-top {
@@ -416,10 +414,19 @@ footer{
 
 /* Card body styling */
 .card-body {
-    padding: 20px; /* Ample padding for comfortable spacing */
+    padding: 0px; /* Ample padding for comfortable spacing */
     text-align: center;
     background-color: #ffffff; /* Ensure body background is white */
 
+}
+.download-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* লুকানো */
+    visibility: hidden; /* লুকানো */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* ধীরে ধীরে দেখাবে */
 }
 
 /* Title styling */
@@ -454,6 +461,10 @@ footer{
     transform: translateY(-2px); /* Slightly lift button on hover */
 }
 
+
+
+
+
 /* Additional footer section */
 .card-footer {
     padding: 10px;
@@ -480,7 +491,7 @@ footer{
     }
 
     .card-body {
-        padding: 15px; /* Adjust padding for smaller screens */
+        padding: 0px; /* Adjust padding for smaller screens */
     }
 
     .card-title {
@@ -489,6 +500,7 @@ footer{
 
     .card-text {
         font-size: 0.85rem; /* Smaller text */
+        width: 40px;
     }
 }
 
@@ -498,8 +510,8 @@ footer{
     }
 
     .btn-primary {
-        padding: 8px 16px; /* Smaller button padding */
-        font-size: 0.9rem; /* Adjust button font size */
+        padding: 8px 25px; /* Smaller button padding */
+        font-size: 0.15rem; /* Adjust button font size */
     }
 }
 
@@ -712,10 +724,10 @@ footer{
                         <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a> <!-- Sports gallery page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sports.html' %}">Vector Stock</a> <!-- Sports gallery page -->
+                        <a class="nav-link" href="{% url 'vector.html' %}">Vector Stock</a> <!-- Sports gallery page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home.html' %}">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
+                        <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
                     </li>  
                 </ul>
             </div>
@@ -747,7 +759,7 @@ footer{
                 <ul>
                     <li><a class="nav-link" href="{% url 'home.html' %}">Home</a></li>
                     <li><a class="nav-link" href="{% url 'home.html' %}"> News</a></li>
-                    <li><a class="nav-link" href="{% url 'index.html' %}">About</a></li>
+                    <li><a class="nav-link" href="{% url 'about.html' %}">About</a></li>
                     <li><a class="nav-link" href="{% url 'contact.html' %}">Contacts us</a></li>
                 </ul>
             </div>

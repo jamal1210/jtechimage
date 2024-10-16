@@ -1,95 +1,67 @@
-/* Reset and base styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000000;
-    color: #000000;
-  }
-  
-  /* Navbar Styling */
-  .navbar {
-    background-color: #343a40;
-  }
-  
-  .navbar-brand {
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: bold;
-  }
-  
-  .navbar-toggler {
-    border: none;
-  }
-  
-  .navbar-toggler-icon {
-    filter: invert(100%);
-  }
-  
-  .navbar-nav .nav-link {
-    color: #fff;
-    font-size: 1.1rem;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #adb5bd;
-  }
-  
-  /* Page Title Styling */
-  h1 {
-    font-size: 2.5rem;
-    color: #000000;
-    margin-top: 20px;
-  
-  }
-  
-  /* Image Container Styling */
-  .container {
-    margin-top: 80px;
-  }
-  
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-    border: 5px solid #343a40;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Add a slight hover effect to the image */
-  .img-fluid:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Button Styling */
-  .btn-success {
-    background-color: #28a745;
-    border: none;
-    font-size: 1.25rem;
-    width: 100%;
-  }
-  
-  .btn-success:hover {
-    background-color: #218838;
-  }
-  
-  /* Responsive Media Queries */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-      margin-top: 20px;
-    }
-  
-    .btn-success {
-      font-size: 1.1rem;
-    }
-  
-    .img-fluid {
-      border: 3px solid #343a40;
-    }
-  }
-  
+/* Body styling */
+body {
+  background-color: #000000; /* হালকা পটভূমি রঙ */
+  color: #000000; /* লেখার রঙ */
+  font-family: 'Arial', sans-serif; /* ফন্ট ফ্যামিলি */
+}
+
+/* Container styling */
+.container {
+  margin-top: 50px; /* উপরের মার্জিন */
+}
+
+/* Image card styling */
+.image-card {
+  position: relative; /* পজিশন রিলেটিভ */
+  border-radius: 10px; /* কোণ গোলাকার */
+  overflow: hidden; /* সীমার বাইরে যাওয়া অংশ লুকান */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* ছায়া */
+}
+
+/* Image styling */
+.img-fluid {
+  border-radius: 10px; /* ইমেজের কোণ গোলাকার */
+  transition: transform 0.3s ease; /* ইমেজে জুম এফেক্ট */
+}
+
+/* Image hover effect */
+.img-fluid:hover {
+  transform: scale(1.05); /* হোভার করার সময় জুম হবে */
+}
+
+/* Overlay styling */
+.overlay {
+  position: absolute; /* পজিশন আবশ্যক */
+  top: 0; /* শীর্ষে */
+  left: 0; /* বাম দিকে */
+  right: 0; /* ডান দিকে */
+  bottom: 0; /* নীচে */
+  background-color: rgba(0, 0, 0, 0.5); /* অর্ধস্বচ্ছ কালো */
+  display: flex; /* ফ্লেক্স ডিসপ্লে */
+  justify-content: center; /* কেন্দ্রের দিকে বসানো */
+  align-items: center; /* উল্লম্ব কেন্দ্রের দিকে বসানো */
+  opacity: 0; /* লুকানো */
+  transition: opacity 0.3s ease; /* ট্রানজিশন */
+}
+
+/* Show overlay on hover */
+.image-card:hover .overlay {
+  opacity: 1; /* হোভার করার সময় দৃশ্যমান */
+}
+
+/* Button styling */
+.btn-success {
+  background-color: #28a745; /* সফল বাটনের ব্যাকগ্রাউন্ড */
+  border: none; /* বর্ডার বাদ দিন */
+  padding: 10px 20px; /* প্যাডিং সেট করুন */
+  border-radius: 5px; /* কোণ গোলাকার */
+  font-size: 1rem; /* ফন্ট সাইজ */
+  color: white; /* লেখার রঙ */
+  text-align: center; /* টেক্সট কেন্দ্রিত করুন */
+  transition: background-color 0.3s ease; /* ব্যাকগ্রাউন্ড রঙের পরিবর্তনের জন্য ট্রানজিশন */
+}
+
+/* Button hover effect */
+.btn-success:hover {
+  background-color: #218838; /* গা darker হবে */
+}

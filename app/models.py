@@ -84,3 +84,21 @@ class image_slider (models.Model):
         return self.title
 
 
+# vector stock 
+
+class vector_page(models.Model):
+    title = models.CharField(max_length=150)
+    slug = models.SlugField(unique=True)
+    tags = models.TextField(blank=True)  
+    img = models.FileField(upload_to="pic/%Y/%m/%d")# Using ImageField instead of FileField 
+
+    def __str__(self):
+        return self.title
+    
+
+    class Meta:
+        ordering = ('-id',)
+    
+    
+    def get_absolute_url(self):
+        return reverse("vectors", args=[self.id, self.slug])

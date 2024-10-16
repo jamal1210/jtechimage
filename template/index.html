@@ -104,27 +104,26 @@
         <h2>Generated Image Gallery</h2>
     </div>
     <div class="gallery-container">
-    <div class="row">
-        {% for image in gallery %}
-        <div class="col-lg-4 col-md-4 col-12 mb-4">
-            <div class="card" style="width: 18rem;">
-                <a href="{% url 'home.html' %}">
-                    <img src="{{ image.img.url }}" class="card-img-top" alt="{{ image.title }}">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="{% url 'home.html' %}" class="text-dark">{{ image.title }}</a>
-                    </h5>
-                    <p class="card-text">{{ image.tags }}</p>
-                    <a href="{% url 'home.html' %}" class="btn btn-primary">Go to Another Page</a>
+        <div class="row">
+            {% for image in gallery %}
+            <div class="col-lg-4 col-md-4 col-12 mb-4">
+                <div class="card" style="width: 18rem; position: relative;">
+                    <a href="{% url 'home.html' %}">
+                        <img src="{{ image.img.url }}" class="card-img-top" alt="{{ image.title }}">
+                    </a>
+                    <!-- Download button inside the card -->
+                    <a href="{{ image.img.url }}" class="btn btn-success download-btn" download="{{ image.title }}">Download</a>
+                    <div class="card-body">
+                        <p class="card-text">{{ image.tags }}</p>
+                    </div>
                 </div>
             </div>
+            {% empty %}
+            <p>No images generated yet.</p>
+            {% endfor %}
         </div>
-        {% empty %}
-        <p>No images generated yet.</p>
-        {% endfor %}
     </div>
-</div>
+    
 {% endblock %}
 <!-- Bootstrap JS, jQuery, and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

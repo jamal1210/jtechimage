@@ -13,7 +13,7 @@
 
    
 
-    <title>Image Library</title>
+    <title>Vector Stock</title>
 </head>
 <body>
     <!-- Navbar -->
@@ -37,7 +37,7 @@
                         <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a> <!-- Sports gallery page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'vector.html' %}">Vector Stock</a> <!-- Contract list page -->
+                        <a class="nav-link" href="{% url 'index.html' %}">Vector Stock</a> <!-- Contract list page -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
@@ -58,7 +58,7 @@
 
     <div class="container">
         <div class="row">
-            {% for x in images %}
+            {% for x in vector_store %}
                 <div class="col-lg-3 col-md-4 col-12 mb-3"> <!-- 4টি ইমেজ এক লাইনে -->
                     <div class="card" style="width: 100%;">
                         <a href="{{ x.get_absolute_url }}">

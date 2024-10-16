@@ -3,7 +3,7 @@ from .models import Image, Sports_Image_page
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Contact_page,image_slider
+from .models import Contact_page,image_slider,vector_page
 from django.contrib import messages
 
 
@@ -58,10 +58,6 @@ def sports_search_page(request):
 
 # contact page 
 
-
-
-from django.shortcuts import render, redirect
-
 def contact_view(request):
     if request.method == 'POST':
         # Process form data here (saving to the database, sending an email, etc.)
@@ -82,3 +78,35 @@ def contact_view(request):
 def slider(request):
     gallery = image_slider.objects.all()  # Use the correct model name 'Image'
     return render(request, 'index.html', {'gallery': gallery})
+
+
+#vector store 
+
+def vector_store(request):  # Fixed 'galary' to 'gallery'
+    vector_store = vector_page.objects.all()  # Use 'sports_images' to make it clearer
+    return render(request, 'vector.html', {'vector_store': vector_store})
+
+
+# Detail view for sports images
+
+def vector_view(request, id, slug):
+    vector_store = get_object_or_404(vector_page, id=id, slug=slug)
+    return render(request, 'vector_view.html', {'vector_store': vector_store})
+
+
+# Search for sports images
+def vector_search_page(request):
+    query = request.GET.get('searchs1', None)
+    result = []  # Initialize an empty result list
+
+    if query:
+        result = vector_page.objects.filter(Q(title__icontains=query) | Q(tags__icontains=query))
+
+    return render(request, 'vector_view.html', {'query': query, 'result': result})
+
+
+
+# about page 
+
+def about_page(request):
+    return render(request,'about.html')
