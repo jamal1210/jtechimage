@@ -1,15 +1,13 @@
-/* about.css */
-
 /* General styles */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #000000;
     margin: 0;
-    padding: 0px;
-    display: flexbox;
+    padding: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Header styles */
@@ -17,10 +15,10 @@ h1 {
     color: #000000;
     font-size: 2.5em;
     text-align: center;
-    max-width: 700px; /* ৩টি লাইনে ভেঙে ফেলার জন্য উপযুক্ত প্রস্থ */
+    max-width: 90%;
     line-height: 1.4;
     margin: 0;
-    padding: 50px;
+    padding: 30px;
     border: 3px solid #00796b;
     border-radius: 15px;
     background-color: #ffffff;
@@ -28,16 +26,13 @@ h1 {
     text-transform: lowercase;
     letter-spacing: 1.5px;
     animation: glow 1.5s ease-in-out infinite alternate;
-    margin-top: 80px;
-    margin-bottom: 80px;
-    margin-left: 420px;
-  
 }
 
+/* First letter style */
 h1::first-letter {
-    text-transform: lowercase; /* প্রথম অক্ষরকে বড় হাতের অক্ষরে রূপান্তর করবে */
-    font-size: 1.2em; /* প্রয়োজন মতো প্রথম অক্ষরের ফন্ট সাইজ সামঞ্জস্য করতে পারেন */
-    color: dodgerblue; /* প্রথম অক্ষরের রঙ পরিবর্তন করা যেতে পারে */
+    text-transform: capitalize;
+    font-size: 1.2em;
+    color: dodgerblue;
 }
 
 /* Animation styles */
@@ -47,5 +42,23 @@ h1::first-letter {
     }
     to {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px #004d40, 0 0 30px #004d40, 0 0 40px #004d40;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+        padding: 20px;
+        margin: 20px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        padding: 15px;
+        max-width: 95%;
     }
 }

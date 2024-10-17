@@ -1,5 +1,3 @@
-/* about.css */
-
 /* General styles */
 * {
     margin: 0;
@@ -10,9 +8,9 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background: white;
-    color: white;
-    overflow: hidden;
+    background: rgb(201, 187, 187);
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
 }
 .container {
     width: 100%;
@@ -20,18 +18,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 8%;
+    padding: 20px 5%;
     position: relative;
     z-index: 1;
 }
 .container::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 45deg, #ff0080, #ff6600, #ffff00, #00ff66, #0066ff, #ff00ff);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 45deg, #ffffff);
     animation: animateBackground 10s linear infinite;
     z-index: -1;
 }
@@ -47,46 +45,32 @@ body {
 /* Contact Form */
 .container .row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    max-width: 1100px;
-    background: rgba(0, 0, 0, 0.7);
+    max-width: 900px;
+    background: rgba(216, 97, 97, 0.7);
     border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
 }
 
 /* Left Section */
 .row section.left {
-    flex-basis: 35%;
-    min-width: 320px;
-    margin-right: 60px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 .left .contactTitle h2 {
-    position: relative;
-    font-size: 32px;
-    color: #fff;
-    display: inline-block;
-    margin-bottom: 25px;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 15px;
 }
-.left .contactTitle h2::before {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 2px;
-    background-color: #888;
-    top: 120%;
-    left: 0;
-}
-.left .contactTitle h2::after {
-    content: '';
-    position: absolute;
-    width: 25%;
-    height: 3px;
-    background-color: dodgerblue;
-    top: calc(120% - 1px);
-    left: 0;
+.left .contactInfo .iconGroup {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 .left .contactInfo .iconGroup .icon {
     background: rgba(255, 255, 255, 0.1);
@@ -98,19 +82,38 @@ body {
 
 /* Right Section */
 .row section.right {
-    flex-basis: 60%;
+    width: 100%;
 }
-.right .messageForm input, .right .messageForm textarea {
-    background: rgba(255, 255, 255, 0.1);
+.right .messageForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.right .messageForm input, 
+.right .messageForm textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(175, 111, 111, 0.1);
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     transition: 0.4s;
 }
-.right .messageForm input:focus, .right .messageForm textarea:focus {
-    background: rgba(255, 255, 255, 0.2);
+.right .messageForm input:focus, 
+.right .messageForm textarea:focus {
+    background: white;
+    border-color: dodgerblue;
+}
+.right .inputGroup {
+    text-align: center;
 }
 .right .inputGroup button {
+    width: 100%;
+    padding: 12px;
     background: linear-gradient(135deg, #ff0080, #ff6600);
     color: #fff;
     border: none;
+    border-radius: 5px;
     transition: 0.4s;
 }
 .right .inputGroup button:hover {
@@ -118,25 +121,33 @@ body {
 }
 
 /* Animation and Responsiveness */
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 25px dodgerblue, 0 0 35px dodgerblue;
+@media(max-width: 768px) {
+    .container {
+        padding: 15px 3%;
     }
-    50% {
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 50px dodgerblue, 0 0 60px dodgerblue;
+    .left .contactTitle h2 {
+        font-size: 20px;
+    }
+    .right .messageForm input, 
+    .right .messageForm textarea {
+        font-size: 14px;
+    }
+    .right .inputGroup button {
+        font-size: 16px;
     }
 }
-@media(max-width: 1100px) {
-    .messageForm .halfWidth {
-        flex-basis: 100%;
+@media(max-width: 480px) {
+    .container {
+        padding: 10px 2%;
     }
-}
-@media(max-width: 900px) {
-    .container .row {
-        flex-wrap: wrap;
+    .left .contactTitle h2 {
+        font-size: 18px;
     }
-    .row section.left, .row section.right {
-        flex-basis: 100%;
-        margin: 0px;
+    .right .messageForm input, 
+    .right .messageForm textarea {
+        padding: 10px;
+    }
+    .right .inputGroup button {
+        font-size: 14px;
     }
 }
