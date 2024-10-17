@@ -19,7 +19,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index.html' %}">JTECH IMAGE</a>
+            <a class="navbar-brand" href="{% url 'index.html' %}">pixkal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -31,18 +31,23 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'index.html' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a> <!-- Home for general images -->
+                        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a> <!-- Sports gallery page -->
+                        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index.html' %}">Vector Stock</a> <!-- Contract list page -->
+                        <a class="nav-link" href="{% url 'vector.html' %}">Vector Stock</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a> <!-- Ensure you have a URL for Sign Up -->
-                    </li>   
+                        <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a>
+                    </li>
                 </ul>
+                <!-- Search Bar -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -136,89 +141,198 @@ h1 {
    
 }
 
-/* Navbar Styles */
-.navbar {
-    background: linear-gradient(90deg, #000000, #000000); /* Gradient background for the navbar */
-    justify-content: center; /* Center the navbar items */
-    font-size: large;
-    padding: 20px 40px; /* Padding for more space */
-    border-bottom: 6px solid #1a5722; /* Bottom border for a stylish touch */
-    transition: background 0.8s ease-in-out; /* Smooth background transition */
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.navbar:hover {
-    background: linear-gradient(90deg, #2504b8, #2504b8); /* Change gradient on hover */
+/* Navbar Styles */
+.navbar {
+    background:#000000;
+    border-bottom: 4px solid #14a76c;
+    border-radius: 15px;
+    padding: 10px 15px;
+    transition: all 0.5s ease-in-out;
 }
 
 .navbar-brand {
-    color: #ff008c; /* Brand text color */
-    font-weight: bold; /* Bold brand text */
-    font-size: 1.8em; /* Slightly larger font size */
-    text-shadow: 0 3px 6px rgba(206, 33, 128, 0.4); /* Text shadow for effect */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling and color transition */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.6em;
+    letter-spacing: 1.2px;
 }
 
-.navbar-brand:hover {
-    color: #cf3abb; /* Change brand color on hover */
-    transform: rotate(-5deg) scale(1.1); /* Rotate and scale effect on hover */
+.navbar-toggler {
+    border: none;
 }
 
-.navbar-nav {
-    display: flex;
-    margin-left: auto; /* Align items to the center */
-    margin-right: auto; /* Align items to the center */
-}
-
+/* Navbar Links */
 .navbar-nav .nav-link {
-    color: #e0e0e0; /* Default link color */
-    font-weight: 600; /* Slightly bolder link text */
-    margin: 0 20px; /* Increased space between links */
+    color: #e0e0e0;
+    font-weight: 600;
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: large;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling transition */
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-left: 40px;
 }
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #00c853;
-    transition: width 0.3s ease;
-    border-radius: 5px;
+/* Bottom Navbar Styles */
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #6d0e73, #1f7840);
+    border-top: 4px solid #14a76c;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
 }
 
-.navbar-nav .nav-link:hover::after {
-    width: 100%; /* Animate the underline expansion */
+/* Navbar Brand */
+.bottom-navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-nav .nav-link:hover {
-    color: #0ef80e; /* Different hover color for links */
-    transform: scale(1.05); /* Slight scaling on hover */
+/* Bottom Navbar Links */
+.bottom-navbar .nav-link {
+    color: #f8f8f8;
+    font-weight: 500;
+    padding: 6px 10px;
+    font-size: medium;
+    position: relative;
 }
 
-/* Responsive Navbar */
+/* Hover Effects for Bottom Navbar */
+.bottom-navbar .nav-link:hover {
+    color: #10ff91;
+    transform: translateY(-2px);
+}
+
+/* Bottom Navbar Icon Links */
+.bottom-navbar .nav-link i {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Stack items vertically */
-        padding: 25px; /* Padding for a more mobile-friendly feel */
+        padding: 8px;
     }
 
     .navbar-nav {
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column;
         align-items: center;
-        margin: 10px 0; /* Spacing between stacked links */
     }
 
     .navbar-nav .nav-link {
-        margin: 15px 0; /* Space out links more on mobile */
+        font-size: medium;
+        padding: 5px 0;
+    }
+
+    .bottom-navbar {
+        flex-direction: row;
+    }
+
+    .form-control {
+        width: 90%;
+        margin: 5px auto;
+        border-radius: 10px;
+    }
+
+    .btn-outline-success {
+        width: 100%;
     }
 }
 
-   /*footar*/
 
+/* Search Bar Mobile Friendly */
+.form-control {
+    border-radius: 12px;
+    transition: width 0.4s ease;
+    margin-right: 8px;
+}
+
+/* Custom Search Bar Style */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 200px;
+}
+
+/* Search Input */
+.search-bar input[type="search"] {
+    border: none;
+    outline: none;
+    background: none;
+    color: #000000;
+    width: 400%;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+/* Search Button */
+.search-bar button {
+    border: none;
+    background: #f70bcf;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+}
+
+/* Search Button Hover */
+.search-bar button:hover {
+    background-color: #ffffff;
+}
+
+/* Bottom Navbar Active Link Style */
+.bottom-navbar .nav-link.active {
+    color: #14a76c;
+    font-weight: 700;
+    border-bottom: 2px solid #14a76c;
+}
+
+/* Bottom Navbar Icon Style */
+.bottom-navbar .nav-link i {
+    font-size: 1.3em;
+    color: #e0e0e0;
+}
+
+/* Animation for Active Link */
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #14a76c;
+    transition: all 0.3s ease-in-out;
+}
+
+
+   /*footar*/
 *{
     padding: 0;
     margin: 0;

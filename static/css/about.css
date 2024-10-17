@@ -1,64 +1,58 @@
 /* General styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #000000;
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Header styles */
-h1 {
-    color: #000000;
-    font-size: 2.5em;
-    text-align: center;
-    max-width: 90%;
+body {
+    background-color: #f4f4f4;
+    color: #333;
     line-height: 1.4;
-    margin: 0;
-    padding: 30px;
-    border: 3px solid #00796b;
-    border-radius: 15px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-transform: lowercase;
-    letter-spacing: 1.5px;
-    animation: glow 1.5s ease-in-out infinite alternate;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* First letter style */
-h1::first-letter {
-    text-transform: capitalize;
+h1 {
+    font-size: 2.5em;
+    color: #3f51b5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
     font-size: 1.2em;
-    color: dodgerblue;
-}
-
-/* Animation styles */
-@keyframes glow {
-    from {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px #80cbc4, 0 0 20px #80cbc4, 0 0 30px #80cbc4;
-    }
-    to {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px #004d40, 0 0 30px #004d40, 0 0 40px #004d40;
-    }
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 20px;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     h1 {
         font-size: 2em;
-        padding: 20px;
-        margin: 20px;
-        max-width: 100%;
+    }
+    
+    p {
+        font-size: 1em;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.8em;
-        padding: 15px;
-        max-width: 95%;
+        font-size: 1.5em;
+    }
+    
+    p {
+        font-size: 0.9em;
     }
 }
