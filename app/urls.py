@@ -8,6 +8,7 @@ from aiimage import views as aiimage_views
 urlpatterns = [
     # main 
     path('', aiimage_views.generate_image, name='index.html'),
+  
     
     #ai image sections
     path('ho/', app_views.home_page, name='home.html'),  # Home page for general images
@@ -29,6 +30,7 @@ urlpatterns = [
 
     # contract page and about page 
     path('contact/', app_views.contact_view, name='contact.html'),
-    path('about/', app_views.about_page, name='about.html')
+    path('about/', app_views.about_page, name='about.html'),
+    path('test/', app_views.nave_view, name='test.html')
 
 ]

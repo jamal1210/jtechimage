@@ -14,57 +14,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-       
-/* General Styles */
 
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:rgb(252, 232, 232); /* Light background color */
+    background-color: #d6b5b5;
     box-sizing: border-box;
-    min-height: 100vh; /* Full viewport height */
-    width: 100%; /* Full viewport width */
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* Header and Titles */
-h1, h3 {
+h1, h2, h3 {
     text-align: center;
     margin: 20px 0;
-    margin-top: 30px;
-    padding-top: 30px;
     color: #007bff;
-   
 }
 
 h1 {
-    color: #000000; /* Green color */
-     font-weight: bold;
-     font-size: 50px;
+    color: #000;
+    font-weight: bold;
+    font-size: 50px;
 }
-
 
 h2 {
-    color: rgb(52, 49, 241); /* Red color */
+    color: rgb(52, 49, 241);
     font-weight: bold;
-    text-align: center;
     padding-top: 60px;
     font-size: 50px;
-   
 }
 
-/*form */
-
+/* Form Styles */
 .form-container {
-    background: rgb(0, 0, 0);
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 119, 238, 0.5); /* Shadow for depth */
-    padding: 80px; /* Increased padding for a more spacious feel */
-    width: 100%; /* Full width */
-    max-width: 250px; /* Maximum width of the container for larger screens */
-    min-height: 450px; /* Minimum height to give it a more substantial look */
-    transition: transform 0.2s; /* Smooth transition for hover effects */
-    margin: 0 auto; /* Center the container */
+    background: #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 119, 238, 0.5);
+    padding: 80px;
+    width: 100%;
+    max-width: 250px;
+    min-height: 450px;
+    transition: transform 0.2s;
+    margin: 0 auto;
 }
 
 .form-container:hover {
@@ -75,104 +67,66 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
     display: block;
-    color: #000000;
+    color: #000;
     font-size: 30px;
 }
 
 input[type="text"],
-    select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 5px solid #36012d;
-        border-radius: 8px;
-        font-size: 25px;
-        background: #000000;
-        color: #e0e0e0;
-        transition: border-color 0.3s;
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 5px solid #36012d;
+    border-radius: 8px;
+    font-size: 25px;
+    background: #000;
+    color: #e0e0e0;
+    transition: border-color 0.3s;
 }
 
-        input[type="text"]:focus,
-        select:focus {
-            border-color: #00c853;
-            outline: none;
-        }
+input[type="text"]:focus,
+select:focus {
+    border-color: #00c853;
+    outline: none;
+}
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #0a043b;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0a043b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
 
-        button:hover {
-            background-color: #009624;
-        }
-
-        .error {
-            color: #ff5252;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .result {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .progress {
-            width: 100%;
-            background-color: #444;
-            border-radius: 8px;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .progress-bar {
-            height: 20px;
-            width: 0%;
-            background-color: #00c853;
-            border-radius: 8px;
-            transition: width 0.4s;
-        }
-
-        @media (max-width: 500px) {
-            .form-container {
-                padding: 20px;
-            }
-        }
-
-
-
+button:hover {
+    background-color: #009624;
+}
 
 /* Error and Result Messages */
 .error {
     color: #ff5252;
+    margin-top: 10px;
     text-align: center;
 }
 
 .result {
-    text-align: center;
     margin-top: 20px;
+    text-align: center;
 }
+
+/* Image Styles */
 img {
     max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Progress Bar Styles */
 .progress {
     width: 100%;
     background-color: #444;
@@ -189,211 +143,93 @@ img {
     transition: width 0.4s;
 }
 
-@media (max-width: 500px) {
-    .container {
-        padding: 20px;
-        }
-}
 
 
-
-
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Navbar Styles */
-.navbar {
-    background:#000000;
-    border-bottom: 4px solid #14a76c;
-    border-radius: 15px;
-    padding: 10px 15px;
-    transition: all 0.5s ease-in-out;
-}
-
-.navbar-brand {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1.6em;
-    letter-spacing: 1.2px;
-}
-
-.navbar-toggler {
-    border: none;
-}
-
-/* Navbar Links */
-.navbar-nav .nav-link {
-    color: #e0e0e0;
-    font-weight: 600;
-    padding: 8px 12px;
-    margin: 0 5px;
-    font-size: large;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-    margin-left: 40px;
-}
-
-/* Bottom Navbar Styles */
-.bottom-navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #6d0e73, #1f7840);
-    border-top: 4px solid #14a76c;
-    border-radius: 10px 10px 0 0;
+/* Header and Navigation */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 1000;
-    transition: all 0.5s ease-in-out;
-}
-
-/* Navbar Brand */
-.bottom-navbar .navbar-brand {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.3em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* Bottom Navbar Links */
-.bottom-navbar .nav-link {
-    color: #f8f8f8;
-    font-weight: 500;
-    padding: 6px 10px;
-    font-size: medium;
     position: relative;
 }
 
-/* Hover Effects for Bottom Navbar */
-.bottom-navbar .nav-link:hover {
-    color: #10ff91;
-    transform: translateY(-2px);
-}
-
-/* Bottom Navbar Icon Links */
-.bottom-navbar .nav-link i {
-    font-size: 1.2em;
-    display: block;
-    margin-bottom: 3px;
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 8px;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar-nav .nav-link {
-        font-size: medium;
-        padding: 5px 0;
-    }
-
-    .bottom-navbar {
-        flex-direction: row;
-    }
-
-    .form-control {
-        width: 90%;
-        margin: 5px auto;
-        border-radius: 10px;
-    }
-
-    .btn-outline-success {
-        width: 100%;
-    }
-}
-
-
-/* Search Bar Mobile Friendly */
-.form-control {
-    border-radius: 12px;
-    transition: width 0.4s ease;
-    margin-right: 8px;
-}
-
-/* Custom Search Bar Style */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #f0f0f0;
-    border-radius: 25px;
-    padding: 5px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 200px;
-}
-
-/* Search Input */
-.search-bar input[type="search"] {
-    border: none;
-    outline: none;
-    background: none;
-    color: #000000;
-    width: 400%;
-    padding: 8px 12px;
-    border-radius: 20px;
-}
-
-/* Search Button */
-.search-bar button {
-    border: none;
-    background: #f70bcf;
+.logo {
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 20px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.menu-btn {
+    font-size: 24px;
+    color: #fff;
+    display: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 200px;
 }
 
-/* Search Button Hover */
-.search-bar button:hover {
-    background-color: #ffffff;
+#chek {
+    display: none;
 }
 
-/* Bottom Navbar Active Link Style */
-.bottom-navbar .nav-link.active {
-    color: #14a76c;
-    font-weight: 700;
-    border-bottom: 2px solid #14a76c;
+.navbar {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    margin-right: 80px;
 }
 
-/* Bottom Navbar Icon Style */
-.bottom-navbar .nav-link i {
-    font-size: 1.3em;
-    color: #e0e0e0;
+.navbar li {
+    margin: 0 20px;
 }
 
-/* Animation for Active Link */
-.navbar-nav .nav-link.active::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #14a76c;
-    transition: all 0.3s ease-in-out;
+.navbar li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
 }
 
+.navbar li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
 
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        width: 100%;
+        height: 100px;
+    }
+    #chek:checked ~ .navbar {
+        display: flex;
+    }
+    .navbar li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
 
-
+@media (max-width: 500px) {
+    .form-container {
+        padding: 20px;
+    }
+}
 
 
 /* Responsive Footer Padding */
+
+
 body {
     padding-bottom: 70px; /* Adjust padding to make room for the bottom navbar */
 }
@@ -638,6 +474,7 @@ footer{
 
 
 /* CSS for the Image Slider */
+
 .container {
     max-width: 800px;
     margin: auto;
@@ -819,49 +656,31 @@ footer{
 </style>
 
 
-
-
 </head>
 
 <body>
-   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index.html' %}">pixkal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'index.html' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home.html' %}">AI Image</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'vector.html' %}">Vector Stock</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a>
-                </li>
-            </ul>
-            <!-- Search Bar -->
-            <form class="d-flex" role="search" action="your-url-here" method="GET">
-                <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="query">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
 
-
-
+<!-- Navbar -->
+<header>
+    <a class="logo" href="#">Pixkal</a>
+    <input type="checkbox" id="chek">
+    <label for="chek" class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <ul class="navbar">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index.html' %}">Home</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home.html' %}">AI Image</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'sports.html' %}">Sports Gallery</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'vector.html' %}">Vector Stock</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index.html' %}">Sign Up</a></li>
+      </li>
+    </ul>
+</header>
     <!-- Main Content -->
     {% block slider %}
     {% endblock %}
@@ -886,7 +705,7 @@ footer{
                     <li><a class="nav-link" href="{% url 'home.html' %}">Home</a></li>
                     <li><a class="nav-link" href="{% url 'home.html' %}"> News</a></li>
                     <li><a class="nav-link" href="{% url 'about.html' %}">About</a></li>
-                    <li><a class="nav-link" href="{% url 'contact.html' %}">Contacts us</a></li>
+                    <li><a class="nav-link" href="{% url 'contact.html' %}">Contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -895,13 +714,19 @@ footer{
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/slider.js' %}"></script>
-    <!-- Bootstrap JS, jQuery, and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/slider.js' %}"></script>
+<!-- jQuery and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<!-- Bootstrap JS, jQuery, and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

@@ -110,3 +110,7 @@ def vector_search_page(request):
 
 def about_page(request):
     return render(request,'about.html')
+
+
+def nave_view(request):
+    return render(request,'nave2.html')

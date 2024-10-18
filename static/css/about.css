@@ -1,4 +1,4 @@
-/* General styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,21 +7,25 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #e28a8a;
     color: #333;
     line-height: 1.4;
 }
 
+/* Container Styling */
 .container {
     width: 90%;
     max-width: 800px;
     margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 50px;
+    background-color: #e9cece;
     border-radius: 6px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 550px;
+    margin-bottom: 550px;
 }
 
+/* Headings */
 h1 {
     font-size: 2.5em;
     color: #3f51b5;
@@ -29,6 +33,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Paragraphs */
 p {
     font-size: 1.2em;
     text-align: center;
@@ -38,6 +43,10 @@ p {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+    
     h1 {
         font-size: 2em;
     }
@@ -48,11 +57,19 @@ p {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    
     h1 {
         font-size: 1.5em;
     }
     
     p {
         font-size: 0.9em;
+    }
+    
+    body {
+        padding: 10px;
     }
 }
