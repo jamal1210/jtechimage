@@ -39,66 +39,6 @@
     </div>
 </div>
 
-    <h1>AI Text to Image Generator</h1>
-    
-    <!-- Form Section -->
-    <div class="container">
-        <form method="POST" onsubmit="showProgressBar()">
-            {% csrf_token %}
-            <label for="prompt">Enter your prompt:</label>
-            <input type="text" id="prompt" name="prompt" required placeholder="examp: cute baby">
-
-            <label for="style">Select a style:</label>
-            <select id="style" name="style" required>
-                <option value="realistic">Realistic</option>
-                <option value="cartoon">Cartoon</option>
-                <option value="sketch">Sketch</option>
-                <option value="abstract">Abstract</option>
-                <option value="digital">Digital Art</option>
-                <option value="oil painting">Oil Painting</option>
-            </select>
-
-            <button type="submit">Generate Image</button>
-        </form>
-        <h3>just wait...</h3>
-
-        <!-- Progress bar -->
-        <div class="progress" id="progress" style="display:none;">
-            <div class="progress-bar" style="width: 0;"></div>
-        </div>
-
-        {% if error %}
-            <p class="error">Error: {{ error }}</p>
-        {% elif image_data %}
-            <div class="result">
-                <h2>Generated Image</h2>
-                <img src="data:image/png;base64,{{ image_data }}" alt="Generated Image"/>
-                <p><strong>Prompt:</strong> {{ prompt }}</p>
-                <p><strong>Style:</strong> {{ style }}</p>
-            </div>
-        {% endif %}
-    </div>
-
-    <script>
-        function showProgressBar() {
-            const progressBarContainer = document.getElementById('progress');
-            const progressBar = document.querySelector('.progress-bar');
-            progressBarContainer.style.display = 'block';
-            let width = 0;
-            const interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                } else {
-                    width++;
-                    progressBar.style.width = width + '%';
-                }
-            }, 30);
-        }
-    </script>
-    
-    
-
-
      <!-- gallery.html -->
     <div class="imageg">
         <h2>Generated Image Gallery</h2>
