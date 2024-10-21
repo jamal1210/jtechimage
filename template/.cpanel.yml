@@ -3,3 +3,6 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/pixkalco/public_html/
     - /bin/cp * $DEPLOYPATH
+
+
+    #conect c panel 
