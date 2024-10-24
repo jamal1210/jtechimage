@@ -17,8 +17,8 @@
 </head>
 <body>
     <header>
-         <a class="logo" href="{% url 'index.html' %}">
-        <img src="{% static 'images/pixkal.com.jpg' %}" alt="Pixkal.com">
+        <a href="{% url 'index.html' %}" class="logo">
+            <h4>pix<span>kal</span></h4>
         </a>
         <input type="checkbox" id="chek">
         <label for="chek" class="menu-btn">
@@ -151,25 +151,33 @@ header {
     position: relative;
 }
 
-/*logo end design*/
+/*logo start */
 .logo {
-    display: inline-block; /* লোগোকে ব্লক হিসেবে দেখাতে */
-    text-decoration: none; /* লিঙ্কের আন্ডারলাইন বাদ দিতে */
-   
+    font-family: 'Arial', sans-serif; /* Font style */
+    font-size: 4em; /* Size of the text */
+    font-weight: bold; /* Make text bold */
+    color: #1a0af8; /* Text color */
+    text-align: center; /* Center align */
+    margin: 0px 0; /* Margin above and below */
+    margin-left: 20px;
 }
 
-.logo img {
-    max-width: 100%; /* রেসপন্সিভ ডিজাইন, ছবি এক্সট্রা বড় হলে সাইজ কমাবে */
-    height: auto; /* উচ্চতা অটোমেটিকভাবে ঠিক করবে */
-    border-radius: 15px;
+h4{
+    font-size: 50px;
 }
 
-.logo:hover img {
-    opacity: 0.8; /* হোভার করলে ছবির স্বচ্ছতা কমিয়ে দিতে */
-    transition: opacity 0.3s; /* স্বচ্ছতার পরিবর্তন মসৃণ করতে */
+.logo span {
+    color: #f39c12; /* Color for the span */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
 }
 
-/*logo end design*/
+.logo span:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+    color: #ff00aa;
+}
+
+/*logo end*/
 
 .menu-btn {
     font-size: 24px;
