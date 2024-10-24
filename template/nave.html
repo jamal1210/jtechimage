@@ -155,11 +155,25 @@ header {
     position: relative;
 }
 
+/*logo end design*/
 .logo {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
+    display: inline-block; /* লোগোকে ব্লক হিসেবে দেখাতে */
+    text-decoration: none; /* লিঙ্কের আন্ডারলাইন বাদ দিতে */
+   
 }
+
+.logo img {
+    max-width: 100%; /* রেসপন্সিভ ডিজাইন, ছবি এক্সট্রা বড় হলে সাইজ কমাবে */
+    height: auto; /* উচ্চতা অটোমেটিকভাবে ঠিক করবে */
+    border-radius: 15px;
+}
+
+.logo:hover img {
+    opacity: 0.8; /* হোভার করলে ছবির স্বচ্ছতা কমিয়ে দিতে */
+    transition: opacity 0.3s; /* স্বচ্ছতার পরিবর্তন মসৃণ করতে */
+}
+
+/*logo end design*/
 
 .menu-btn {
     font-size: 24px;
@@ -191,7 +205,7 @@ header {
 }
 
 .navbar li a:hover {
-    background-color: #555;
+    background-color: #66fa39;
     border-radius: 5px;
 }
 
@@ -662,7 +676,9 @@ footer{
 
 <!-- Navbar -->
 <header>
-    <a class="logo" href="#">Pixkal</a>
+    <a class="logo" href="{% url 'index.html' %}">
+        <img src="{% static 'images/pixkal.com.jpg' %}" alt="Pixkal.com">
+    </a>
     <input type="checkbox" id="chek">
     <label for="chek" class="menu-btn">
         <i class="fas fa-bars"></i>
